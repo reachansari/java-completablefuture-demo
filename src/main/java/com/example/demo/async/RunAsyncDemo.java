@@ -16,7 +16,7 @@ public class RunAsyncDemo {
 
 
 
-    public void saveEmployeesWithCustomExecutor(File jsonFile) throws ExecutionException, InterruptedException {
+    public void saveEmployeesWithExecutor(File jsonFile) throws ExecutionException, InterruptedException {
         ObjectMapper mapper = new ObjectMapper();
         Executor executor = Executors.newFixedThreadPool(5);
         CompletableFuture<Void> runAsyncFuture = CompletableFuture.runAsync(
@@ -36,7 +36,7 @@ public class RunAsyncDemo {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         RunAsyncDemo runAsyncDemo = new RunAsyncDemo();
-        runAsyncDemo.saveEmployeesWithCustomExecutor(new File("employees.json"));
+        runAsyncDemo.saveEmployeesWithExecutor(new File("employees.json"));
 
     }
 }
